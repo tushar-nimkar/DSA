@@ -1,0 +1,24 @@
+# Sort the values - Radix sort
+myArray = [170, 45, 75, 90, 802, 24, 2, 66]
+   
+def radix_sort(arr):  
+    radix_sort_temp = [[],[],[],[],[],[],[],[],[],[]]
+    exp = 1
+    max_val = max(arr)
+    
+    while max_val//exp>0:
+        while len(arr)>0:
+            current_val = arr.pop()
+            radix_index = (current_val//exp)%10
+            radix_sort_temp[radix_index].append(current_val)
+        
+    
+        for radix_list in radix_sort_temp:
+            while len(radix_list)>0:
+                update_value = radix_list.pop()
+                arr.append(update_value)
+        exp*=10
+        
+    return arr
+    
+print(radix_sort(myArray))
