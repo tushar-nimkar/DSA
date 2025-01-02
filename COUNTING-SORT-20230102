@@ -1,0 +1,23 @@
+# Counting sort code
+
+myArray = [2, 3, 0, 2, 3, 2, 10,8,9,5]
+
+def sorting_arr(arr):
+    max_in_arr = max(arr)+1
+    sorted_arr = [0]*(max_in_arr)
+    
+    while len(arr)>0:
+        sorted_arr[arr[0]]+=1
+        arr.pop(0)
+    
+    count=len(sorted_arr)
+    number=0
+    while count>0:
+        for i in range(sorted_arr[number]):
+            arr.append(number)
+        number+=1
+        count-=1
+    
+    return arr
+
+print(sorting_arr(myArray))
